@@ -4,19 +4,15 @@ import ToDoForm from './components/ToDoForm';
 import ToDoTable from './components/ToDoTable';
 
 //Bonus Sensei
-// import ToDoStorage from './components/storage/ToDoStorage';
 const ToDoStorage = require('./components/storage/ToDoStorage')
 
 function App() {
 
   //Bonus Sensei
   const toDoStorage = new ToDoStorage("key");
-  // console.log(n)
 
   const [db, setDb] = useState(toDoStorage.getTasks());
   const [idCounter, setIdCounter] = useState(1);
-
-  
 
   const createTask = (task) => {
     task.id = idCounter;
@@ -43,28 +39,6 @@ function App() {
     //Bonus Sensei:
     toDoStorage.saveTasks(newDb)  
   }
-
-  
-
-  // saveTasks(tasks,key) {
-  //   let myStorage = window.localStorage;
-  //   myStorage.removeItem(key);
-  //   const stringifiedTasks = JSON.stringify(tasks);
-  //   myStorage.setItem(key, stringifiedTasks);
-  // }
-
-  // getTasks(tasks,key) {
-  
-  //   let myStorage = window.localStorage;
-  //   const stringifiedTasks = myStorage.getItem(key);
-  //   const parsedTasks = JSON.parse(stringifiedTasks);
-    
-  //   if(parsedTasks && parsedTasks.length){
-  //     return parsedTasks.map(Task.copyFrom);
-  //   }else{
-  //     return new Array()
-  //   }
-  // }
 
   return (
     <div className="App">
